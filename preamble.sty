@@ -1,0 +1,48 @@
+% Dit commando declareert dat dit een pakket is. 
+% De naam tussen {} moet exact overeenkomen met de bestandsnaam (zonder .sty).
+\ProvidesPackage{preamble}
+
+% --- 1. Externe Pakketten Laden ---
+% Hier zet je alles wat je normaal bovenin je document zet.
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}    % Voor juiste afbreking in het Nederlands
+\usepackage{amsmath}         % Standaard wiskunde
+\usepackage{amssymb}         % Voor symbolen zoals \mathbb
+\usepackage{geometry}        % Voor marges
+\usepackage{parskip}         % Witregels i.p.v. inspringen bij alinea's
+
+
+% Codeblokken
+\usepackage{xcolor}
+\usepackage{listings}
+\lstset{%
+      basicstyle=\ttfamily\small,
+      frame=single,
+      breaklines=true,
+      columns=fullflexible,
+      keepspaces=true,
+      keywordstyle=\color{blue},
+      commentstyle=\color{gray},
+      stringstyle=\color{teal},
+}
+
+
+
+
+
+% --- 2. Je Eigen Definities (Lean-stijl macro's) ---
+% Hier definieer je afkortingen voor veelgebruikte concepten.
+
+% Je eigen macro's
+\newcommand{\R}{\mathbb{R}}
+
+
+% Voorbeeld: De set van Natuurlijke getallen
+\newcommand{\N}{\mathbb{N}}
+
+% Voorbeeld: Een implicatie pijl die lijkt op Lean
+\newcommand{\imp}{\rightarrow}
+
+% Voorbeeld: Een "Theorem" omgeving
+\usepackage{amsthm}
+\newtheorem{stelling}{Stelling}

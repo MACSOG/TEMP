@@ -1,19 +1,10 @@
 \documentclass[a4paper]{article}
 
 
-% Codeblokken
-\usepackage{xcolor}
-\usepackage{listings}
-\lstset{%
-      basicstyle=\ttfamily\small,
-      frame=single,
-      breaklines=true,
-      columns=fullflexible,
-      keepspaces=true,
-      keywordstyle=\color{blue},
-      commentstyle=\color{gray},
-      stringstyle=\color{teal},
-}
+% Hier importeer je jouw module.
+% LaTeX zoekt nu automatisch naar 'preamble.sty' in dezelfde map.
+\usepackage{preamble}
+
 
 
 \title{\textbf{\MakeUppercase{Geavanceerde Wiskundige Modellering van Medicatie-Effectiviteit en -Optimalisatie}}}
@@ -22,6 +13,15 @@
 
 \begin{document}
     \maketitle
+
+
+\section{Modulair Werken}
+Omdat we \texttt{preamble} hebben geladen, kunnen we direct wiskunde gebruiken zonder hier pakketten te definiëren.
+
+Hier is een stelling over $\N$:
+\begin{stelling}
+    Voor elke $n \in \N$ geldt...
+\end{stelling}
 
 
 
@@ -42,7 +42,7 @@ print( van: " JeffTheTroubleshooter " )
 
 
 
-\newpage
+%\newpage
 
     \section{DISPLAYS}
 
