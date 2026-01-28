@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[dutch]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{forest}
+
+% We definiëren stijlen voor de pingpong
+\tikzset{
+  % Stijl voor 'Tegenpartij' (Rood/Gevaar)
+  tegenpartij/.style={fill=red!10, draw=red, thick},
+  % Stijl voor 'Mijn actie' (Geel/Let op!)
+  actie/.style={fill=yellow!20, draw=orange, double, font=\bfseries},
+  % Stijl voor 'Afgehandeld' (Groen/Rust)
+  klaar/.style={fill=green!10, draw=green!50!black, dashed}
+}
+
+\begin{document}
+
+\section*{Dossier: De Pingpong}
+
+\begin{forest}
+  for tree={
+    grow'=0,              % Groeit naar rechts
+%    grow'=south,              % Groeit naar rechts
+    folder,               % MAAKT HET EEN FILETREE!
+    fit=band,             % Zorgt dat tekst past
+    s sep=0.2cm,          % Verticale afstand tussen regels
+    draw,                 % Teken lijnen om de tekstvakjes
+    rounded corners,      % Ronde hoeken zijn vriendelijker
+    node options={align=left}, 
+  }
+  [Dossier X (Start)
+    [2023-01-10: Brief Tegenpartij (Eis) , tegenpartij
+      [2023-01-14: Mijn verweer (Concept) , klaar]
+      [2023-01-15: Mijn verweer (Verzonden) , klaar]
+    ]
+    [2023-02-01: Reactie Tegenpartij (Nieuw bewijs) , tegenpartij
+       [2023-02-02: Email advocaat (Vraag om uitstel) , klaar]
+    ]
+    [2023-03-10: Dagvaarding ontvangen , tegenpartij
+       [NOG TE DOEN: Verweerschrift schrijven , actie]
+       [NOG TE DOEN: Bewijsstukken verzamelen , actie]
+    ]
+  ]
+\end{forest}
+
+\end{document}
