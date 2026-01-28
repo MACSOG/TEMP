@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[dutch]{babel}
+\usepackage{forest}
+
+\begin{document}
+
+\section*{Juridische Beslisboom (Wetsanalyse)}
+
+\begin{forest}
+  for tree={
+    grow=south,           % Boom groeit naar beneden
+    draw,                 % Kaders om de tekst
+    align=center,         % Tekst centreren
+    l sep=1.5cm,          % Verticale afstand
+    s sep=1cm,            % Horizontale afstand
+    edge={->},            % Pijltjes
+    where n children=0{   % Opmaak voor eindresultaat (geen kinderen)
+      fill=green!10,      % Lichtgroene achtergrond
+      font=\bfseries      % Vetgedrukt
+    }{}
+  }
+  [Is er sprake van onrechtmatige daad? (art. 6:162 BW)
+    [Ja
+      [Is er schade?]
+      [Is er causaal verband?
+        [Ja
+           [Schadevergoeding]
+        ]
+        [Nee
+           [Geen aansprakelijkheid]
+        ]
+      ]
+    ]
+    [Nee
+      [Geen aansprakelijkheid]
+    ]
+  ]
+\end{forest}
+
+\end{document}
