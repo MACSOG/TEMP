@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{forest} % Vereist pakket
+
+\begin{document}
+
+\section*{Fylogenetische Boom (Treefile Data)}
+
+% Hieronder plak je de structuur die in je .treefile staat.
+% Vierkante haken [] worden gebruikt voor knooppunten.
+\begin{forest}
+  for tree={
+    grow'=0,             % Groeirichting naar rechts (zoals vaak bij fylogenie)
+    draw,                % Teken lijnen om de nodes (optioneel)
+    align=center,        % Tekst uitlijning
+    parent anchor=east,  % Lijnen vertrekken rechts
+    child anchor=west,   % Lijnen komen links binnen
+    l sep=1cm,           % Afstand tussen niveaus
+    s sep=0.5cm          % Afstand tussen zuster-nodes
+  }
+  [Voorouder
+    [Groep A
+      [Soort 1]
+      [Soort 2]
+    ]
+    [Groep B
+      [Soort 3]
+    ]
+  ]
+\end{forest}
+
+\end{document}
