@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[a4paper, margin=0.8in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{courier}            % Het typemachine lettertype
+\usepackage[most]{tcolorbox}    % De magie voor de blokken
+
+% --- STYLE DEFINITIONS (SOCOM THEME) ---
+
+% Basiskleurstellingen
+\definecolor{OpsRed}{RGB}{180, 0, 0}      % Vijandig
+\definecolor{OpsGreen}{RGB}{0, 100, 0}    % Veilig / Eigen
+\definecolor{OpsYellow}{RGB}{220, 160, 0} % Alert / Actie
+\definecolor{OpsGray}{RGB}{80, 80, 80}    % Neutraal
+
+% Generieke instellingen voor alle blokken
+\tcbset{
+    sharp corners,      % Geen ronde hoeken (Military style)
+    fonttitle=\ttfamily\bfseries\large, % Titel is monospaced en vet
+    fontupper=\ttfamily,                % Inhoud is monospaced
+    boxrule=1pt,        % Dikte van de rand
+    leftrule=5mm,       % Dikke balk links
+    colback=white,      % Witte achtergrond voor leesbaarheid
+    breakable,          % BELANGRIJK: Breekt automatisch naar volgende pagina
+    after skip=4mm      % Ruimte tussen de blokken
+}
+
+% --- DE COMMANDO'S ---
+
+% 1. VIJANDIG (Rood) - Brieven van tegenpartij
+\newtcolorbox{hostile}[2]{
+    colframe=OpsRed,
+    colbacktitle=OpsRed!10!white,
+    coltitle=OpsRed!50!black,
+    title={ [HOSTILE] :: #1 }, % #1 is datum
+    leftrule=5mm
+}
+
+% 2. EIGEN (Groen/Grijs) - Wat jij hebt gedaan
+\newtcolorbox{friendly}[2]{
+    colframe=OpsGreen,
+    colbacktitle=OpsGreen!10!white,
+    coltitle=OpsGreen!50!black,
+    title={ [FRIENDLY] :: #1 },
+    leftrule=5mm
+}
+
+% 3. ACTIE VEREIST (Geel/Zwart) - Wat je nu moet doen
+\newtcolorbox{alert}[2]{
+    colframe=OpsYellow,
+    colbacktitle=OpsYellow!20!white,
+    coltitle=black,
+    title={ [!!! ACTION REQUIRED !!!] :: #1 },
+    leftrule=5mm,
+    borderline east={2pt}{0pt}{OpsYellow} % Extra rand rechts voor nadruk
+}
+
+\begin{document}
+
+% Header
+\noindent\textbf{\LARGE \ttfamily // CASE LOG: DOSSIER AANNEMER //}
+\vspace{0.5cm}
+
+% --- HIER BEGINT JE WORKFLOW ---
+% Je kopieert en plakt gewoon deze blokken onder elkaar.
+% Volgorde maakt niet uit, pagina breekt vanzelf.
+
+\begin{hostile}{2023-01-10 | 09:00 UUR}
+ONTVANGEN: Ingebrekestelling van Aannemersbedrijf Pruts B.V.
+Dreigen met incasso als factuur 2023-99 niet binnen 3 dagen is voldaan.
+\end{hostile}
+
+\begin{friendly}{2023-01-12 | 14:30 UUR}
+VERZONDEN: Aangetekende brief.
+Inhoud: Betwisting factuur. Werkzaamheden zijn niet afgerond conform afspraak.
+Foto's van lekkage bijgevoegd als Bewijsstuk A.
+\end{friendly}
+
+\begin{hostile}{2023-01-20 | 10:15 UUR}
+ONTVANGEN: Reactie advocaat tegenpartij.
+Ze ontkennen de lekkage. Claimen dat ik zelf aan de leidingen heb gezeten.
+Ultimatum gesteld op 1 februari.
+\end{hostile}
+
+\begin{alert}{DEADLINE: 2023-02-01}
+OPS: Expert inschakelen.
+Ik moet voor de deadline een onafhankelijk expertiserapport hebben van de schade.
+Kostenindicatie opvragen bij Bureau X.
+\end{alert}
+
+\begin{friendly}{2023-01-25 | 11:00 UUR}
+INTERN: Expert gebeld. Komt morgen langs.
+Kosten €400,- (voorschieten).
+\end{friendly}
+
+% Stel je hebt hier nog 500 items...
+% \begin{hostile}{Datum} ... \end{hostile}
+% Het systeem blijft werken.
+
+\end{document}

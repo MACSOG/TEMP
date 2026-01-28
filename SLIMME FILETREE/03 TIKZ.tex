@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[dutch]{babel}
+\usepackage{tikz}
+\usetikzlibrary{chains, shapes.misc, positioning, arrows.meta}
+
+\begin{document}
+
+\section*{Dossier: De Eindeloze Pingpong}
+
+\begin{center}
+\begin{tikzpicture}[
+    % Instellingen voor de hele ketting
+    start chain=going below,    % Alles wat je toevoegt komt ONDER de vorige
+    node distance=8mm,          % Afstand tussen blokken
+    every join/.style={->, thick, >=latex}, % Pijl stijl tussen blokken
+    
+    % Onze stijlen (dezelfde als eerst)
+    base/.style={
+        on chain,               % Zorgt dat het in de ketting komt
+        join,                   % Verbindt automatisch met de vorige!
+        draw, 
+        rounded corners, 
+        align=center, 
+        text width=8cm,         % Vaste breedte zodat het netjes lijnt
+        inner sep=6pt
+    },
+    tegenpartij/.style={base, fill=red!10, draw=red},
+    klaar/.style={base, fill=green!10, draw=green!50!black, dashed},
+    actie/.style={base, fill=yellow!20, draw=orange, double, font=\bfseries}
+]
+
+    % --- HIER BEGINT JE LIJST (GEEN NESTING MEER!) ---
+    
+    % Stap 1
+    \node [base, fill=blue!10] {
+        \textbf{Start Dossier}\\
+        Cliënt meldt conflict
+    };
+
+    % Stap 2
+    \node [tegenpartij] {
+        \textbf{2023-01-10}\\
+        Brief Orde van Advocaten (Klacht)
+    };
+
+    % Stap 3
+    \node [klaar] {
+        \textbf{2023-01-12}\\
+        Ontvangstbevestiging gestuurd
+    };
+
+    % Stap 4 - Je kunt gewoon door blijven typen onder elkaar
+    \node [tegenpartij] {
+        \textbf{2023-02-01}\\
+        Wederpartij stuurt 400 pagina's onzin
+    };
+
+    % Stap 5
+    \node [actie] {
+        \textbf{DEADLINE 2023-02-14}\\
+        Verweerschrift indienen!
+    };
+    
+    % Stap 6 - Enzovoort... (Geen tabs nodig!)
+    \node [klaar] {
+        \textbf{2023-02-13}\\
+        Concept gemaakt
+    };
+
+\end{tikzpicture}
+\end{center}
+
+\end{document}
